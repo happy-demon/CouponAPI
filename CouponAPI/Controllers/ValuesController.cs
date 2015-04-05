@@ -27,6 +27,14 @@ namespace CouponAPI.Controllers
         public string SalePrice { get; set; }
     }
 
+    public class Outlets : TableEntity
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public string Description { get; set; }
+        public string Description_CN { get; set; }
+    }
+
     public class OutletsController : ApiController
     {
 
@@ -43,9 +51,9 @@ namespace CouponAPI.Controllers
             // Create the CloudTable object that represents the "people" table.
             CloudTable table = tableClient.GetTableReference("Coupons");
 
-            var results = (from Coupons in table.CreateQuery<Coupon>()
-                           where Coupons.PartitionKey == "奥特莱"
-                           select Coupons).Take(10).ToList();
+            var results = (from entity in table.CreateQuery<Coupon>()
+                           where entity.PartitionKey == "奥特莱"
+                           select entity).Take(10).ToList();
 
             return new List<Coupon>(results);
 
@@ -89,9 +97,9 @@ namespace CouponAPI.Controllers
             // Create the CloudTable object that represents the "people" table.
             CloudTable table = tableClient.GetTableReference("Coupons");
 
-            var results = (from Coupons in table.CreateQuery<Coupon>()
-                           where Coupons.PartitionKey == "好市多"
-                           select Coupons).Take(10).ToList();
+            var results = (from entity in table.CreateQuery<Coupon>()
+                           where entity.PartitionKey == "好市多"
+                           select entity).Take(10).ToList();
 
             return new List<Coupon>(results);
 
@@ -110,6 +118,52 @@ namespace CouponAPI.Controllers
 
         // PUT api/values/5
         public void Put(int id, [FromBody]Coupon value)
+        {
+        }
+
+        // DELETE api/values/5
+        public void Delete(int id)
+        {
+        }
+    }
+
+    public class SeattleOutletsController : ApiController
+    {
+
+        // GET api/values
+        public IEnumerable<Outlets> Get()
+        {
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the CloudTable object that represents the "people" table.
+            CloudTable table = tableClient.GetTableReference("Outlets");
+
+            var results = (from entity in table.CreateQuery<Outlets>()
+                           // where entity.PartitionKey == "奥特莱"
+                           select entity).Take(100).ToList();
+
+            return new List<Outlets>(results);
+
+        }
+
+        // GET api/values/5
+        public Outlets Get(int id)
+        {
+            return null;
+        }
+
+        // POST api/values
+        public void Post([FromBody]Outlets value)
+        {
+        }
+
+        // PUT api/values/5
+        public void Put(int id, [FromBody]Outlets value)
         {
         }
 
