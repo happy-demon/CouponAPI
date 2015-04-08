@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.WindowsAzure.Storage.Table;
 using System.IO;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Newtonsoft.Json;
 
 namespace CouponFetcher
 {
@@ -16,38 +21,42 @@ namespace CouponFetcher
         // AzureWebJobsDashboard and AzureWebJobsStorage
         static void Main()
         {
-            JobHost host = new JobHost();
-            Task callTask = host.CallAsync(typeof(Program).GetMethod("ManualTrigger"));
+            FetchData();
+        }
 
-            Console.WriteLine("Waiting for async operation...");
-            callTask.Wait();
-            Console.WriteLine("Task completed: " + callTask.Status);
-
+        private static void FetchData()
+        {
+            throw new NotImplementedException();
         }
 
 
-        [NoAutomaticTrigger]
-        public static void ManualTrigger([Table("Coupons")] CloudTable couponsTable)
+        private static void CreateDemoData()
         {
-            DateTime dt = DateTime.Now;
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ConnectionString);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("input");
+            container.CreateIfNotExists();
+
+            CloudBlockBlob blob = container.GetBlockBlobReference("BlobOperations.txt");
+            blob.UploadText("Hello world!");
+
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+            CloudQueue queue = queueClient.GetQueueReference("persons");
+            queue.CreateIfNotExists();
 
             Coupon c = new Coupon()
             {
                 PartitionKey = "奥特莱",
                 RowKey = "Abercrombie & 123" + DateTime.Now.ToFileTime(),
-                Category = "test"//,
-                //CouponDetail = "CouponDetail"//,
-                //CouponEndDate= "01/10/2015", CouponImage ="http://test", CouponStartDate = "10/20/2015" , 
-                //ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", 
-                //SaleCity="seattle", SalePrice="8.20"
+                Category = "test",
+                CouponDetail = "CouponDetail",
+                CouponEndDate= "01/10/2015", CouponImage ="http://test", CouponStartDate = "10/20/2015" , 
+                ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", 
+                SaleCity="seattle", SalePrice="8.20"
             };
-
-            // Create the TableOperation that inserts the customer entity.
-            TableOperation insertOperation = TableOperation.Insert(c);
-
-            // Execute the insert operation.
-            couponsTable.Execute(insertOperation);
+            queue.AddMessage(new CloudQueueMessage(JsonConvert.SerializeObject(c)));
         }
+
     }
 
     public class Coupon : TableEntity
