@@ -36,7 +36,8 @@ namespace CouponFetcher
                 PartitionKey = dt.Year.ToString(),
                 RowKey = DateTime.Now.ToString(),
                 Category = "test",
-                CouponDetail = "CouponDetail", CouponEndDate= DateTime.Now, CouponImage ="http://test", CouponStartDate = DateTime.Now , ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", SaleCity="seattle", SalePrice="8.20"
+                CouponDetail = "CouponDetail"
+                //CouponEndDate= DateTime.Now, CouponImage ="http://test", CouponStartDate = DateTime.Now , ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", SaleCity="seattle", SalePrice="8.20"
             };
 
             TableOperation operation = TableOperation.InsertOrReplace(c);
