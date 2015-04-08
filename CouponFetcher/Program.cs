@@ -10,7 +10,7 @@ using System.IO;
 namespace CouponFetcher
 {
     // To learn more about Microsoft Azure WebJobs SDK, please see http://go.microsoft.com/fwlink/?LinkID=320976
-    class Program
+    public class Program
     {
         // Please set the following connection strings in app.config for this WebJob to run:
         // AzureWebJobsDashboard and AzureWebJobsStorage
@@ -34,7 +34,7 @@ namespace CouponFetcher
             Coupon c = new Coupon()
             {
                 PartitionKey = dt.Year.ToString(),
-                RowKey = dt.Month.ToString(),
+                RowKey = DateTime.Now.ToString(),
                 Category = "test",
                 CouponDetail = "CouponDetail", CouponEndDate= DateTime.Now, CouponImage ="http://test", CouponStartDate = DateTime.Now , ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", SaleCity="seattle", SalePrice="8.20"
             };
