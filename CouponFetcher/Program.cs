@@ -34,8 +34,7 @@ namespace CouponFetcher
             Coupon c = new Coupon()
             {
                 PartitionKey = "奥特莱",
-//dt.Year.ToString(),
-                RowKey = "Abercrombie & 123",
+                RowKey = "Abercrombie & 123" + DateTime.Now.ToFileTime(),
                 Category = "test"//,
                 //CouponDetail = "CouponDetail"//,
                 //CouponEndDate= "01/10/2015", CouponImage ="http://test", CouponStartDate = "10/20/2015" , 
