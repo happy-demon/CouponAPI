@@ -33,16 +33,21 @@ namespace CouponFetcher
 
             Coupon c = new Coupon()
             {
-                PartitionKey = dt.Year.ToString(),
-                RowKey = DateTime.Now.ToString(),
-                Category = "test",
-                CouponDetail = "CouponDetail"
-                //CouponEndDate= DateTime.Now, CouponImage ="http://test", CouponStartDate = DateTime.Now , ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", SaleCity="seattle", SalePrice="8.20"
+                PartitionKey = "奥特莱",
+//dt.Year.ToString(),
+                RowKey = "Abercrombie & 123",
+                Category = "test"//,
+                //CouponDetail = "CouponDetail"//,
+                //CouponEndDate= "01/10/2015", CouponImage ="http://test", CouponStartDate = "10/20/2015" , 
+                //ETag ="", OriginalPrice = "10.00", ProductDescription="ffff", ProductName="ffff", 
+                //SaleCity="seattle", SalePrice="8.20"
             };
 
-            TableOperation operation = TableOperation.InsertOrReplace(c);
+            // Create the TableOperation that inserts the customer entity.
+            TableOperation insertOperation = TableOperation.Insert(c);
 
-            couponsTable.Execute(operation);
+            // Execute the insert operation.
+            couponsTable.Execute(insertOperation);
         }
     }
 
@@ -50,9 +55,9 @@ namespace CouponFetcher
     {
         public string Category { get; set; }
         public string CouponDetail { get; set; }
-        public DateTime CouponEndDate { get; set; }
+        public string CouponEndDate { get; set; }
         public string CouponImage { get; set; }
-        public DateTime CouponStartDate { get; set; }
+        public string CouponStartDate { get; set; }
         public string OriginalPrice { get; set; }
         public string ProductDescription { get; set; }
         public string ProductName { get; set; }
