@@ -1,6 +1,6 @@
 ﻿{
   "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-  "webJobName": "OutletsFetcher",
+  "webJobName": "MacysFetcher",
   "startTime": "2015-04-14T00:00:00-08:00",
   "endTime": null,
   "jobRecurrenceFrequency": "Day",

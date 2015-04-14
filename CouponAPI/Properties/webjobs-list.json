@@ -2,6 +2,12 @@
   "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
   "WebJobs": [
     {
+      "filePath": "../CostcoFetcher/CostcoFetcher.csproj"
+    },
+    {
+      "filePath": "../MacysFetcher/MacysFetcher.csproj"
+    },
+    {
       "filePath": "../OutletsFetcher/OutletsFetcher.csproj"
     }
   ]
