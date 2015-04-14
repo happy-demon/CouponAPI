@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouponFetcher", "CouponFetcher\CouponFetcher.csproj", "{5734D5CE-FECD-4E88-8737-895F3D869794}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutletsFetcher", "OutletsFetcher\OutletsFetcher.csproj", "{25A6C1FB-12B2-44CF-9EC8-9FF590111979}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{5734D5CE-FECD-4E88-8737-895F3D869794}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5734D5CE-FECD-4E88-8737-895F3D869794}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5734D5CE-FECD-4E88-8737-895F3D869794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25A6C1FB-12B2-44CF-9EC8-9FF590111979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A6C1FB-12B2-44CF-9EC8-9FF590111979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A6C1FB-12B2-44CF-9EC8-9FF590111979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A6C1FB-12B2-44CF-9EC8-9FF590111979}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
