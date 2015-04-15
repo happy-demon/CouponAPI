@@ -141,19 +141,19 @@ namespace CostcoFetcher
                     //Console.ReadLine();
 
                     // Create a new customer entity.
-                    Costco product1 = new Costco("Costco", rowKey);
-                    product1.categoryName = categoryName;
-                    product1.title = title;
-                    product1.itemNumber = itemNumber;
-                    product1.link = link;
-                    product1.img = img;
-                    product1.des = des;
-                    product1.online_price = online_price;
-                    product1.less_price = less_price;
-                    product1.your_price = your_price;
-                    product1.startDate = startDate;
-                    product1.endDate = endDate;
-                    product1.review = review;
+                    Costco product1 = new Costco("好市多", rowKey);
+                    product1.产品分类 = categoryName;
+                    product1.产品名称 = title;
+                    product1.产品编号 = itemNumber;
+                    product1.产品链接 = link;
+                    product1.产品图片 = img;
+                    product1.产品描述 = des;
+                    product1.原价 = online_price;
+                    product1.减价 = less_price;
+                    product1.折扣价 = your_price;
+                    product1.开始日期 = startDate;
+                    product1.结束日期 = endDate;
+                    product1.产品评价 = review;
 
                     // Create the TableOperation that inserts the customer entity.
                     TableOperation insertOperation = TableOperation.Insert(product1);
@@ -172,18 +172,18 @@ namespace CostcoFetcher
                 this.RowKey = guid;
             }
             public Costco() { }
-            public string categoryName { get; set; }
-            public string title { get; set; }
-            public string itemNumber { get; set; }
-            public string link { get; set; }
-            public string img { get; set; }
-            public string des { get; set; }
-            public string online_price { get; set; }
-            public string less_price { get; set; }
-            public string your_price { get; set; }
-            public string startDate { get; set; }
-            public string endDate { get; set; }
-            public string review { get; set; }
+            public string 产品分类 { get; set; }
+            public string 产品名称 { get; set; }
+            public string 产品编号 { get; set; }
+            public string 产品链接 { get; set; }
+            public string 产品图片 { get; set; }
+            public string 产品描述 { get; set; }
+            public string 原价 { get; set; }
+            public string 减价 { get; set; }
+            public string 折扣价 { get; set; }
+            public string 开始日期 { get; set; }
+            public string 结束日期 { get; set; }
+            public string 产品评价 { get; set; }
         }
     }
 }

@@ -60,3 +60,4 @@ C:\Users\v-feich\Documents\GitHub\CouponAPI\CostcoFetcher\bin\Release\zh-Hans\Mi
 C:\Users\v-feich\Documents\GitHub\CouponAPI\CostcoFetcher\bin\Release\zh-Hant\Microsoft.Data.Services.Client.resources.dll
 C:\Users\v-feich\Documents\GitHub\CouponAPI\CostcoFetcher\obj\Release\CostcoFetcher.exe
 C:\Users\v-feich\Documents\GitHub\CouponAPI\CostcoFetcher\obj\Release\CostcoFetcher.pdb
+C:\Users\v-feich\Documents\GitHub\CouponAPI\CostcoFetcher\obj\Release\CostcoFetcher.csprojResolveAssemblyReference.cache

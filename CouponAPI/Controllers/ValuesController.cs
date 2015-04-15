@@ -13,121 +13,42 @@ namespace CouponAPI.Controllers
 {
     // [Authorize]
 
-    public class Coupon : TableEntity
+    public class Costco : TableEntity
     {
-        public string Category { get; set; }
-        public string CouponDetail { get; set; }
-        public DateTime CouponEndDate { get; set; }
-        public string CouponImage { get; set; }
-        public DateTime CouponStartDate { get; set; }
-        public string OriginalPrice { get; set; }
-        public string ProductDescription { get; set; }
-        public string ProductName { get; set; }
-        public string SaleCity { get; set; }
-        public string SalePrice { get; set; }
+        public string 产品分类 { get; set; }
+        public string 产品名称 { get; set; }
+        public string 产品编号 { get; set; }
+        public string 产品链接 { get; set; }
+        public string 产品图片 { get; set; }
+        public string 产品描述 { get; set; }
+        public string 原价 { get; set; }
+        public string 减价 { get; set; }
+        public string 折扣价 { get; set; }
+        public string 开始日期 { get; set; }
+        public string 结束日期 { get; set; }
+        public string 产品评价 { get; set; }
+    }
+
+    public class Macys : TableEntity
+    {
+        public string 产品名称 { get; set; }
+        public string 产品分类 { get; set; }
+        public string 产品链接 { get; set; }
+        public string 产品图片 { get; set; }
+        public string 产品描述 { get; set; }
+        public string 原价 { get; set; }
+        public string 折扣价 { get; set; }
     }
 
     public class Outlets : TableEntity
     {
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public string Description { get; set; }
-        public string Description_CN { get; set; }
+        public string 商店名称 { get; set; }
+        public string 开始日期 { get; set; }
+        public string 结束日期 { get; set; }
+        public string 活动描述 { get; set; }
     }
 
     public class OutletsController : ApiController
-    {
-
-        // GET api/values
-        public IEnumerable<Coupon> Get()
-        {
-            // Retrieve the storage account from the connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-            // Create the table client.
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            // Create the CloudTable object that represents the "people" table.
-            CloudTable table = tableClient.GetTableReference("Coupons");
-
-            var results = (from entity in table.CreateQuery<Coupon>()
-                           where entity.PartitionKey == "奥特莱"
-                           select entity).Take(10).ToList();
-
-            return new List<Coupon>(results);
-
-        }
-
-        // GET api/values/5
-        public Coupon Get(int id)
-        {
-            return null;
-        }
-
-        // POST api/values
-        public void Post([FromBody]Coupon value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]Coupon value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
-    }
-
-    public class CostcoController : ApiController
-    {
-
-        // GET api/values
-        public IEnumerable<Coupon> Get()
-        {
-            // Retrieve the storage account from the connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                ConfigurationManager.AppSettings["StorageConnectionString"]);
-
-            // Create the table client.
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-            // Create the CloudTable object that represents the "people" table.
-            CloudTable table = tableClient.GetTableReference("Coupons");
-
-            var results = (from entity in table.CreateQuery<Coupon>()
-                           where entity.PartitionKey == "好市多"
-                           select entity).Take(10).ToList();
-
-            return new List<Coupon>(results);
-
-        }
-
-        // GET api/values/5
-        public Coupon Get(int id)
-        {
-            return null;
-        }
-
-        // POST api/values
-        public void Post([FromBody]Coupon value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]Coupon value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-        }
-    }
-
-    public class SeattleOutletsController : ApiController
     {
 
         // GET api/values
@@ -144,7 +65,7 @@ namespace CouponAPI.Controllers
             CloudTable table = tableClient.GetTableReference("Outlets");
 
             var results = (from entity in table.CreateQuery<Outlets>()
-                           // where entity.PartitionKey == "奥特莱"
+                           //where entity.PartitionKey == "奥特莱"
                            select entity).Take(100).ToList();
 
             return new List<Outlets>(results);
@@ -164,6 +85,98 @@ namespace CouponAPI.Controllers
 
         // PUT api/values/5
         public void Put(int id, [FromBody]Outlets value)
+        {
+        }
+
+        // DELETE api/values/5
+        public void Delete(int id)
+        {
+        }
+    }
+
+    public class CostcoController : ApiController
+    {
+
+        // GET api/values
+        public IEnumerable<Costco> Get()
+        {
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the CloudTable object that represents the "people" table.
+            CloudTable table = tableClient.GetTableReference("Costco");
+
+            var results = (from entity in table.CreateQuery<Costco>()
+                           //where entity.PartitionKey == "好市多"
+                           select entity).Take(100).ToList();
+
+            return new List<Costco>(results);
+
+        }
+
+        // GET api/values/5
+        public Costco Get(int id)
+        {
+            return null;
+        }
+
+        // POST api/values
+        public void Post([FromBody]Costco value)
+        {
+        }
+
+        // PUT api/values/5
+        public void Put(int id, [FromBody]Costco value)
+        {
+        }
+
+        // DELETE api/values/5
+        public void Delete(int id)
+        {
+        }
+    }
+
+    public class MacysController : ApiController
+    {
+
+        // GET api/values
+        public IEnumerable<Macys> Get()
+        {
+            // Retrieve the storage account from the connection string.
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            // Create the table client.
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            // Create the CloudTable object that represents the "people" table.
+            CloudTable table = tableClient.GetTableReference("Macys");
+
+            var results = (from entity in table.CreateQuery<Macys>()
+                           // where entity.PartitionKey == "奥特莱"
+                           select entity).Take(100).ToList();
+
+            return new List<Macys>(results);
+
+        }
+
+        // GET api/values/5
+        public Macys Get(int id)
+        {
+            return null;
+        }
+
+        // POST api/values
+        public void Post([FromBody]Macys value)
+        {
+        }
+
+        // PUT api/values/5
+        public void Put(int id, [FromBody]Macys value)
         {
         }
 

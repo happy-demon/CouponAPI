@@ -127,13 +127,14 @@ namespace MacysFetcher
                 Console.WriteLine(des);
                 //Console.ReadLine();
 
-                Macys product1 = new Macys("Beauty", rowKey);
-                product1.title = title;
-                product1.link = link;
-                product1.img = img;
-                product1.originalPrice = originalPrice;
-                product1.offerPrice = offerPrice;
-                product1.des = des;
+                Macys product1 = new Macys("梅西商场", rowKey);
+                product1.产品名称 = title;
+                product1.产品分类 = "Beauty";
+                product1.产品链接 = link;
+                product1.产品图片 = img;
+                product1.原价 = originalPrice;
+                product1.折扣价 = offerPrice;
+                product1.产品描述 = des;
 
                 // Create the TableOperation that inserts the customer entity.
                 TableOperation insertOperation = TableOperation.Insert(product1);
@@ -151,12 +152,13 @@ namespace MacysFetcher
                 this.RowKey = guid;
             }
             public Macys() { }
-            public string title { get; set; }
-            public string link { get; set; }
-            public string img { get; set; }
-            public string des { get; set; }
-            public string originalPrice { get; set; }
-            public string offerPrice { get; set; }
+            public string 产品名称 { get; set; }
+            public string 产品分类 { get; set; }
+            public string 产品链接 { get; set; }
+            public string 产品图片 { get; set; }
+            public string 产品描述 { get; set; }
+            public string 原价 { get; set; }
+            public string 折扣价 { get; set; }
         }
     }
 }
