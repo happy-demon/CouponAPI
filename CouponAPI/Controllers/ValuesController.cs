@@ -15,18 +15,19 @@ namespace CouponAPI.Controllers
 
     public class Coupons : TableEntity
     {
-        public string 产品分类 { get; set; }
-        public string 产品名称 { get; set; }
-        public string 产品编号 { get; set; }
-        public string 产品链接 { get; set; }
-        public string 产品图片 { get; set; }
-        public string 产品描述 { get; set; }
-        public string 原价 { get; set; }
-        public string 减价 { get; set; }
-        public string 折扣价 { get; set; }
-        public string 开始日期 { get; set; }
-        public string 结束日期 { get; set; }
-        public string 产品评价 { get; set; }
+        public string ProductCategory { get; set; }
+        public string ProductName { get; set; }
+        public string ItemNumber { get; set; }
+        public string ProductLink { get; set; }
+        public string ProductPicture { get; set; }
+        public string ProductDescription { get; set; }
+        public string ProductDescription_cn { get; set; }
+        public string OriginalPrice { get; set; }
+        public string LessPrice { get; set; }
+        public string OfferPrice { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string ProductReview { get; set; }
     }
     public class Costco : TableEntity
     {
