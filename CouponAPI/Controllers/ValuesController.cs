@@ -56,10 +56,10 @@ namespace CouponAPI.Controllers
     }
     public class Outlets : TableEntity
     {
-        public string 商店名称 { get; set; }
-        public string 开始日期 { get; set; }
-        public string 结束日期 { get; set; }
-        public string 活动描述 { get; set; }
+        public string StoreName { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
+        public string Event { get; set; }
     }
 
     public class CouponsController : ApiController

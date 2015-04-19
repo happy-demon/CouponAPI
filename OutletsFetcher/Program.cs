@@ -72,26 +72,35 @@ namespace OutletsFetcher
                 eventDescription_li.RemoveRange(0, 2);
                 eventDescription = string.Join("\n", eventDescription_li.ToArray());
 
-                if (eventDate.Split(' ').Count() == 5)
+                try
                 {
-                    startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
-                        + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[4])).ToString().Split(' ')[0];
-                    endDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
-                        + eventDate.Split(' ')[3] + " " + eventDate.Split(' ')[4])).ToString().Split(' ')[0];
+
+
+                    if (eventDate.Split(' ').Count() == 5)
+                    {
+                        startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
+                            + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[4])).ToString().Split(' ')[0];
+                        endDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
+                            + eventDate.Split(' ')[3] + " " + eventDate.Split(' ')[4])).ToString().Split(' ')[0];
+                    }
+                    else if (eventDate.Split(' ').Count() == 6)
+                    {
+                        startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
+                            + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[5])).ToString().Split(' ')[0];
+                        endDate = (DateTime.Parse(eventDate.Split(' ')[3] + " "
+                            + eventDate.Split(' ')[4] + " " + eventDate.Split(' ')[5])).ToString().Split(' ')[0];
+                    }
+                    else
+                    {
+                        startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
+                            + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[6])).ToString().Split(' ')[0];
+                        endDate = (DateTime.Parse(eventDate.Split(' ')[4] + " "
+                            + eventDate.Split(' ')[5] + " " + eventDate.Split(' ')[6])).ToString().Split(' ')[0];
+                    }
                 }
-                else if (eventDate.Split(' ').Count() == 6)
+                catch (Exception e)
                 {
-                    startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
-                        + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[5])).ToString().Split(' ')[0];
-                    endDate = (DateTime.Parse(eventDate.Split(' ')[3] + " "
-                        + eventDate.Split(' ')[4] + " " + eventDate.Split(' ')[5])).ToString().Split(' ')[0];
-                }
-                else
-                {
-                    startDate = (DateTime.Parse(eventDate.Split(' ')[0] + " "
-                        + eventDate.Split(' ')[1] + " " + eventDate.Split(' ')[6])).ToString().Split(' ')[0];
-                    endDate = (DateTime.Parse(eventDate.Split(' ')[4] + " "
-                        + eventDate.Split(' ')[5] + " " + eventDate.Split(' ')[6])).ToString().Split(' ')[0];
+                    continue;
                 }
 
                 Console.WriteLine(storeName);
@@ -101,11 +110,11 @@ namespace OutletsFetcher
                 //Console.ReadLine();
 
                 // Create a new customer entity.
-                Outlets product1 = new Outlets("奥特莱斯", rowKey);
-                product1.商店名称 = storeName;
-                product1.开始日期 = startDate;
-                product1.结束日期 = endDate;
-                product1.活动描述 = eventDescription;
+                Outlets product1 = new Outlets("Outlets", rowKey);
+                product1.StoreName = storeName;
+                product1.StartDate = startDate;
+                product1.EndDate = endDate;
+                product1.Event = eventDescription;
 
                 // Create the TableOperation that inserts the customer entity.
                 TableOperation insertOperation = TableOperation.Insert(product1);
@@ -123,10 +132,10 @@ namespace OutletsFetcher
                 this.RowKey = guid;
             }
             public Outlets() { }
-            public string 商店名称 { get; set; }
-            public string 开始日期 { get; set; }
-            public string 结束日期 { get; set; }
-            public string 活动描述 { get; set; }
+            public string StoreName { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public string Event { get; set; }
         }
     }
 }

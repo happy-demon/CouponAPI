@@ -26,6 +26,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CostcoFetcher", "CostcoFetc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fetcher", "Fetcher\Fetcher.csproj", "{A3084888-04CA-4BDE-A278-D38E36756FE0}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GetCouponInfo(1)", "http://localhost:6336", "{5C21757F-17BF-4310-8F8B-BBBA5FB9E2F0}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_6336"
+		Debug.AspNetCompiler.PhysicalPath = "GetCouponInfo\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6336\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_6336"
+		Release.AspNetCompiler.PhysicalPath = "GetCouponInfo\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6336\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "GetCouponInfo\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +78,10 @@ Global
 		{A3084888-04CA-4BDE-A278-D38E36756FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3084888-04CA-4BDE-A278-D38E36756FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3084888-04CA-4BDE-A278-D38E36756FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C21757F-17BF-4310-8F8B-BBBA5FB9E2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C21757F-17BF-4310-8F8B-BBBA5FB9E2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C21757F-17BF-4310-8F8B-BBBA5FB9E2F0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C21757F-17BF-4310-8F8B-BBBA5FB9E2F0}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
