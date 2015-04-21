@@ -11,7 +11,7 @@ public partial class AllProducts : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        var url = "http://couponapi.azurewebsites.net/api/coupons";
+        var url = "http://coupontest.azurewebsites.net/api/coupons";
         var allProducts = _download_serialized_json_data<Product>(url);
         foreach (var x in allProducts)
         {
